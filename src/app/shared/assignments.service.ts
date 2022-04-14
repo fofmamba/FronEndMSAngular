@@ -19,8 +19,9 @@ export class AssignmentsService {
     this.loggingService.setLoggingLevel(1);
   }
 
-   url = 'http://localhost:8010/api/assignments';
+ //  url = 'http://localhost:8010/api/assignments';
  //url = 'https://apimbds2022.herokuapp.com/api/assignments';
+   url = 'https://apimsangular.herokuapp.com/api/assignments';
 
   getAssignments(page:number, limit:number): Observable<any> {
     //return of(this.assignments);
