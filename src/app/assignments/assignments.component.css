@@ -1,0 +1,61 @@
+.rendu
+{
+  color:green;
+}
+
+.nonRendu {
+  color:red;
+  border: 2px dashed orange;
+  background-color:lightgrey;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ajouterBtn {
+  margin-top: 30px;
+  align-self: flex-end;
+}
+
+.pagination {
+  display:flex;
+  align-content: space-between;
+}
+
+.mat-column-id {
+  padding-left: 16px;
+  font-size: 15px;
+  color:rgb(14, 13, 12);
+}
+.mat-column-nom {
+  padding-left: 16px;
+  font-size: 15px;
+  color:rgb(14, 13, 12);
+}
+
+.mat-column-dateDeRendu {
+  padding-left: -10px;
+  font-size: 15px;
+  color:rgb(14, 13, 12);
+}
+
+.mat-column-rendu {
+  padding-left: -10px;
+  font-size: 15px;
+  color:rgb(14, 13, 12);
+}
+.mat-column-action {
+  padding-left: -10px;
+  font-size: 15px;
+  color:rgb(14, 13, 12);
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.hello:hover{
+color: rgb(248, 112, 0);
+}

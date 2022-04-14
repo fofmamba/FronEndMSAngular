@@ -1,0 +1,50 @@
+
+<!--
+-->
+
+<mat-toolbar>
+  <a href="/home" >Application de gestion des assignments</a>
+  <div class="ajouterlog" *ngIf="!isshow" >
+
+   <button mat-raised-button (click)="login()"><mat-icon>power_settings_new</mat-icon>Login</button>
+  </div>
+  <div class="ajouterlog" *ngIf="isshow" >
+      <button mat-raised-button (click)="logout()"> <mat-icon>exit_to_app</mat-icon>Se deconnecter</button>
+  </div>
+</mat-toolbar>
+<mat-card  *ngIf="!isshow">
+  <mat-card-content>
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+      <h2>Se connecter</h2>
+      <mat-form-field>
+        <input matInput placeholder="nom"  name="username" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="mot de passe"  name="password" required>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
+<mat-sidenav-container *ngIf="isshow">
+  <mat-sidenav mode="side" opened="true">
+
+    <div class="ajouterBtn">
+      <a routerLink="/add">
+        <button mat-flat-button color="accent">
+          Ajouter assignment
+        </button>
+      </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <button mat-raised-button color="primary" (click)="peuplerBD()">  Peuplet BD  </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

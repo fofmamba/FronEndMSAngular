@@ -1,0 +1,62 @@
+<main class="container">
+    <!--
+<div>
+    <label>Nb assignments par page :</label>
+    <input type="range" min=5 max="100"  [(ngModel)]="limit"
+       (change)="getAssignments()"> {{limit}}
+</div>
+<div class="pagination">
+  <button mat-stroked-button color="basic" (click)="premierePage()" [disabled]="page===1">Première Page</button>
+  <button mat-stroked-button color="basic" (click)="pagePrecedente()" [disabled]="!hasPrevPage">Page Précédente</button>
+  <button mat-stroked-button color="basic" (click)="pageSuivante()" [disabled]="!hasNextPage">Page Suivante</button>
+  <button mat-stroked-button color="basic" (click)="dernierePage()"
+          [disabled]="page===totalPages"
+  >
+      Dernière Page
+</button>
+</div>
+-->
+<mat-table #table [dataSource]="assignments" class="mat-elevation-z8" >
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nom">
+    <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="dateDeRendu">
+    <mat-header-cell *matHeaderCellDef> Date de rendu </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.dateDeRendu | date}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="rendu">
+    <mat-header-cell *matHeaderCellDef> Rendu </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.rendu}} </mat-cell>
+  </ng-container>
+
+ <ng-container matColumnDef="action" >
+    <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a  (click)="gotodetail(element.id)" class="hello" >
+        <mat-icon>visibility</mat-icon>
+      </a>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [length]="totalPages"  [pageSize]="totalDocs" [pageSizeOptions]="[5, 10, 100]" aria-label="Select page">
+</mat-paginator>
+</main>
+
+<p>Nombre de page total : {{totalPages}},
+  Nombre d'assignments : {{totalDocs}},
+  Page courante : {{page}},
+  Nb d'assignments par page : {{limit}}</p>
